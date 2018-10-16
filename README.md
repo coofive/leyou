@@ -10,4 +10,7 @@
 ```lua
 leyou
 ├── ly-common -- 公共模块
+├── ly-item -- 商品微服务
+|    ├── ly-item-api -- 商品接口包
+|    ├── ly-item-service -- 商品服务提供者
 ```

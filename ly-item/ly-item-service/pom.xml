@@ -11,5 +11,24 @@
 
     <artifactId>ly-item-service</artifactId>
 
+    <dependencies>
+        <!--web启动器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
+        <!--ly-common-->
+        <dependency>
+            <groupId>com.coofive</groupId>
+            <artifactId>common</artifactId>
+            <version>${leyou.latest.version}</version>
+        </dependency>
+        <!--ly-item-api-->
+        <dependency>
+            <groupId>com.coofive</groupId>
+            <artifactId>ly-item-api</artifactId>
+            <version>${leyou.latest.version}</version>
+        </dependency>
+    </dependencies>
 </project>
