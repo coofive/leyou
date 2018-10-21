@@ -22,7 +22,7 @@
         <!--ly-common-->
         <dependency>
             <groupId>com.coofive</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>ly-common</artifactId>
             <version>${leyou.latest.version}</version>
         </dependency>
         <!--ly-item-api-->
@@ -38,6 +38,16 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.leyou.item.LyItemApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
