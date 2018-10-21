@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ly-item-service</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!--web启动器-->
