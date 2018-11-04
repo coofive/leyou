@@ -1,14 +1,16 @@
 package com.leyou.common.dto;
 
 import lombok.Data;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
- * @author coofive
+ * @author CooFive
  *
  */
 @Data
 @Accessors(chain = true)
+@ToString
 public class ResultDTO<T> {
     /**
      * 是否成功
@@ -18,7 +20,7 @@ public class ResultDTO<T> {
     /**
      * 返回码
      */
-    private Integer code;
+    private String code;
 
     /**
      * 返回信息
