@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 商品分类
+ *
+ * @author CooFive
+ * @version : 1.0.0
+ */
 @RestController
 @RequestMapping("/item/category")
 public class CategoryController {
@@ -20,11 +26,11 @@ public class CategoryController {
     /**
      * 添加商品分类
      *
-     * @param category
-     * @return
+     * @param category 商品分类实体
+     * @return ResultDTO
      */
     @PostMapping
-    public ResultDTO add(@RequestBody Category category){
+    public ResultDTO add(@RequestBody Category category) {
         this.categoryService.add(category);
         return null;
     }
