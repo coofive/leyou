@@ -3,7 +3,7 @@ package com.leyou.common.constants;
 /**
  * 定义常见状态码
  *
- * @author CooFive
+ * @author coofive
  * @version : 1.0.0
  * @date : 18/8/30 14:51
  */

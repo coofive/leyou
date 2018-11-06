@@ -5,8 +5,8 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
- * @author CooFive
- *
+ * @author coofive
+ * @version : 1.0.0
  */
 @Data
 @Accessors(chain = true)

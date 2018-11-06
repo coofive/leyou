@@ -7,12 +7,12 @@ import com.alibaba.fastjson.TypeReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * @author wenwu.liu.o
+ * @author coofive
+ * @version : 1.0.0
  */
 public class FastJsonUtil {
     private static final Logger log = LoggerFactory.getLogger(FastJsonUtil.class);
