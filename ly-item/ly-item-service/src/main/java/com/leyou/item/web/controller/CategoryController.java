@@ -1,8 +1,7 @@
 package com.leyou.item.web.controller;
 
-import com.leyou.common.constants.StatusCode;
 import com.leyou.common.dto.ResultDTO;
-import com.leyou.item.pojo.Category;
+import com.leyou.item.entity.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * 商品分类
  *
- * @author CooFive
+ * @author coofive
  * @version : 1.0.0
  */
 @RestController

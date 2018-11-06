@@ -1,9 +1,13 @@
 package com.leyou.item.service.impl;
 
-import com.leyou.item.pojo.Category;
+import com.leyou.item.entity.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author coofive
+ * @version : 1.0.0
+ */
 @Service
 public class CategoryServiceImpl implements CategoryService {
 

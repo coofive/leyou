@@ -4,7 +4,7 @@ import com.leyou.common.constants.StatusCode;
 import com.leyou.common.dto.ResultDTO;
 
 /**
- * @author CooFive
+ * @author coofive
  * @version : 1.0.0
  * @date : 11/4/2018 10:00 AM
  */

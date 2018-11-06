@@ -1,7 +1,11 @@
 package com.leyou.item.service;
 
-import com.leyou.item.pojo.Category;
+import com.leyou.item.entity.Category;
 
+/**
+ * @author coofive
+ * @version 1.0.0
+ */
 public interface CategoryService {
 
     /**
