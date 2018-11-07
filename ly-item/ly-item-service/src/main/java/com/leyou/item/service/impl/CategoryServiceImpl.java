@@ -2,7 +2,7 @@ package com.leyou.item.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.leyou.item.dao.mapper.CategoryMapper;
-import com.leyou.item.entity.Category;
+import com.leyou.item.dao.po.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +16,20 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     /**
      * 添加商品分类
      *
-     * @param category
+     * @param category 商品分类
+     * @return boolean
      */
     @Override
-    public boolean add(Category category) {
+    public boolean addCategory(Category category) {
         return this.save(category);
+    }
+
+    /**
+     * @param category 商品分类
+     * @return boolean
+     */
+    @Override
+    public boolean updateCategory(Category category) {
+        return this.updateById(category);
     }
 }

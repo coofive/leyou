@@ -2,13 +2,10 @@ package com.leyou.item.web.controller;
 
 import com.leyou.common.dto.ResultDTO;
 import com.leyou.common.utils.ResponseGenerator;
-import com.leyou.item.entity.Category;
+import com.leyou.item.dao.po.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 商品分类
@@ -31,7 +28,14 @@ public class CategoryController {
      */
     @PostMapping
     public ResultDTO add(@RequestBody Category category) {
-        boolean result = this.categoryService.add(category);
+        boolean result = this.categoryService.addCategory(category);
         return result ? ResponseGenerator.success() : ResponseGenerator.fail("添加商品失败");
+    }
+
+    @PutMapping("/{id}")
+    public ResultDTO update(@RequestBody Category category, @PathVariable Long id) {
+        category.setId(id);
+        boolean result = this.categoryService.updateCategory(category);
+        return result ? ResponseGenerator.success() : ResponseGenerator.fail("修改商品失败");
     }
 }
