@@ -1,6 +1,7 @@
 package com.leyou.item.web.controller;
 
 import com.leyou.common.dto.ResultDTO;
+import com.leyou.common.utils.ResponseGenerator;
 import com.leyou.item.entity.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class CategoryController {
      */
     @PostMapping
     public ResultDTO add(@RequestBody Category category) {
-        this.categoryService.add(category);
-        return null;
+        boolean result = this.categoryService.add(category);
+        return result ? ResponseGenerator.success() : ResponseGenerator.fail("添加商品失败");
     }
 }

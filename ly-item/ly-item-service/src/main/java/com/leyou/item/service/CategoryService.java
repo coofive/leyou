@@ -13,5 +13,5 @@ public interface CategoryService {
      *
      * @param category
      */
-    void add(Category category);
+    boolean add(Category category);
 }
