@@ -3,3 +3,5 @@ server:
 spring:
   application:
     name: item-service
+mybatis-plus:
+  type-aliases-package: com.leyou.item.entity

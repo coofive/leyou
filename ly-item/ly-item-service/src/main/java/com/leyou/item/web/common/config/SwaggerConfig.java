@@ -1,4 +1,4 @@
-package com.leyou.item.config;
+package com.leyou.item.web.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
