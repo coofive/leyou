@@ -13,7 +13,7 @@ import lombok.ToString;
  */
 @ToString
 @Data
-@TableName(value = "category")
+@TableName(value = "tb_category")
 public class Category {
     @TableId(type = IdType.AUTO)
     private Long id;

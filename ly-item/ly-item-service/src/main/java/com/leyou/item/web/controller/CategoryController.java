@@ -38,4 +38,16 @@ public class CategoryController {
         boolean result = this.categoryService.updateCategory(category);
         return result ? ResponseGenerator.success() : ResponseGenerator.fail("修改商品失败");
     }
+
+    @DeleteMapping("/{id}")
+    public ResultDTO delete(@PathVariable Long id) {
+        boolean result = this.categoryService.deleteCategory(id);
+        return result ? ResponseGenerator.success() : ResponseGenerator.fail("删除商品失败");
+    }
+
+    @GetMapping("/{id}")
+    public ResultDTO<Category> getById(@PathVariable Long id) {
+        Category category = this.categoryService.getCategoryById(id);
+        return ResponseGenerator.success(category);
+    }
 }
