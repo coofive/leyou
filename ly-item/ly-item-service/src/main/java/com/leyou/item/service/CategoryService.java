@@ -50,4 +50,12 @@ public interface CategoryService {
      * @return List
      */
     List<Category> getCategoryByParentId(Long parentId);
+
+    /**
+     * 根据商品分类ids查询商品分类
+     *
+     * @param ids 商品分类id
+     * @return List
+     */
+    List<Category> getCategoryByIds(List<Long> ids);
 }

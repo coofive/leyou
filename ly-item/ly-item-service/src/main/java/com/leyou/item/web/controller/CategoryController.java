@@ -93,10 +93,23 @@ public class CategoryController {
      * @param parentId 商品分类父节点id
      * @return ResponseEntity
      */
-    @GetMapping("list")
+    @GetMapping("list/{pid}")
     @ApiOperation(value = "根据父节点id查询商品分类", notes = "查询商品分类")
-    public ResponseEntity<List<Category>> getByParentId(@RequestParam(value = "pid") @ApiParam(value = "商品分类父节点id", required = true) Long parentId) {
+    public ResponseEntity<List<Category>> getByParentId(@PathVariable(value = "pid") @ApiParam(value = "商品分类父节点id", required = true) Long parentId) {
         List<Category> categories = this.categoryService.getCategoryByParentId(parentId);
+        return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
+    }
+
+    /**
+     * 根据ids查询商品分类
+     *
+     * @param ids 商品分类ids
+     * @return ResponseEntity
+     */
+    @GetMapping("list")
+    @ApiOperation(value = "根据ids查询商品分类", notes = "查询商品分类")
+    public ResponseEntity<List<Category>> getByIds(@RequestParam(value = "ids") @ApiParam(value = "商品分类ids", required = true) List<Long> ids){
+        List<Category> categories = this.categoryService.getCategoryByIds(ids);
         return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
     }
 }

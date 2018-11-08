@@ -70,4 +70,15 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     public List<Category> getCategoryByParentId(Long parentId) {
         return this.list(new QueryWrapper<Category>().lambda().eq(Category::getParentId,parentId));
     }
+
+    /**
+     * 根据商品分类ids查询商品分类
+     *
+     * @param ids 商品分类id
+     * @return List
+     */
+    @Override
+    public List<Category> getCategoryByIds(List<Long> ids) {
+        return (List<Category>) this.listByIds(ids);
+    }
 }
