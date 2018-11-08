@@ -112,4 +112,17 @@ public class CategoryController {
         List<Category> categories = this.categoryService.getCategoryByIds(ids);
         return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
     }
+
+    /**
+     * 根据cid查询层级所有商品分类
+     *
+     * @param cid 商品分类id
+     * @return ResponseEntity
+     */
+    @GetMapping("all/level")
+    @ApiOperation(value = "根据cid查询层级所有商品分类", notes = "查询商品分类")
+    public ResponseEntity<List<Category>> getByCid(@RequestParam(value = "cid") @ApiParam(value = "商品分类id", required = true) Long cid){
+        List<Category> categories = this.categoryService.getCategoryByCid(cid);
+        return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
+    }
 }

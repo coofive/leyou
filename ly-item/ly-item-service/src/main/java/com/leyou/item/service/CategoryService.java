@@ -58,4 +58,12 @@ public interface CategoryService {
      * @return List
      */
     List<Category> getCategoryByIds(List<Long> ids);
+
+    /**
+     * 根据cid查询层级所有商品分类
+     *
+     * @param cid 商品分类id
+     * @return List
+     */
+    List<Category> getCategoryByCid(Long cid);
 }

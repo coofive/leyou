@@ -6,7 +6,11 @@ import com.leyou.item.dao.mapper.CategoryMapper;
 import com.leyou.item.dao.po.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -68,7 +72,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
      */
     @Override
     public List<Category> getCategoryByParentId(Long parentId) {
-        return this.list(new QueryWrapper<Category>().lambda().eq(Category::getParentId,parentId));
+        return this.list(new QueryWrapper<Category>().lambda().eq(Category::getParentId, parentId));
     }
 
     /**
@@ -80,5 +84,32 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public List<Category> getCategoryByIds(List<Long> ids) {
         return (List<Category>) this.listByIds(ids);
+    }
+
+    /**
+     * 根据cid查询层级所有商品分类
+     *
+     * @param cid 商品分类id
+     * @return List
+     */
+    @Override
+    public List<Category> getCategoryByCid(Long cid) {
+        List<Category> categories = new ArrayList<>(3);
+
+        Category cate3 = this.getById(cid);
+        if (cate3 != null) {
+            categories.add(cate3);
+            Category cate2 = this.getById(cate3.getParentId());
+            if (cate2 != null) {
+                categories.add(cate2);
+                Category cate1 = this.getById(cate2.getParentId());
+                if (cate1 != null) {
+                    categories.add(cate1);
+                }
+            }
+        }
+
+        Collections.reverse(categories);
+        return categories;
     }
 }
