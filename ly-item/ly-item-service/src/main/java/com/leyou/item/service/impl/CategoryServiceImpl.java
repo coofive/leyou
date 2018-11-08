@@ -1,10 +1,13 @@
 package com.leyou.item.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.leyou.item.dao.mapper.CategoryMapper;
 import com.leyou.item.dao.po.Category;
 import com.leyou.item.service.CategoryService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author coofive
@@ -55,5 +58,16 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public Category getCategoryById(Long id) {
         return this.getById(id);
+    }
+
+    /**
+     * 根据父节点id查询商品分类
+     *
+     * @param parentId 商品分类父节点id
+     * @return List
+     */
+    @Override
+    public List<Category> getCategoryByParentId(Long parentId) {
+        return this.list(new QueryWrapper<Category>().lambda().eq(Category::getParentId,parentId));
     }
 }

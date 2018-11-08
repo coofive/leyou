@@ -12,9 +12,11 @@ import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 /**
  * 商品分类
@@ -83,5 +85,18 @@ public class CategoryController {
     public ResponseEntity<Category> getById(@PathVariable @ApiParam(value = "商品分类id", required = true) Long id) {
         Category category = this.categoryService.getCategoryById(id);
         return category == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(category);
+    }
+
+    /**
+     * 根据父节点id查询商品分类
+     *
+     * @param parentId 商品分类父节点id
+     * @return ResponseEntity
+     */
+    @GetMapping("list")
+    @ApiOperation(value = "根据父节点id查询商品分类", notes = "查询商品分类")
+    public ResponseEntity<List<Category>> getByParentId(@RequestParam(value = "pid") @ApiParam(value = "商品分类父节点id", required = true) Long parentId) {
+        List<Category> categories = this.categoryService.getCategoryByParentId(parentId);
+        return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
     }
 }

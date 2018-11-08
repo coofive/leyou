@@ -3,6 +3,8 @@ package com.leyou.item.service;
 
 import com.leyou.item.dao.po.Category;
 
+import java.util.List;
+
 /**
  * @author coofive
  * @version 1.0.0
@@ -40,4 +42,12 @@ public interface CategoryService {
      * @return boolean
      */
     Category getCategoryById(Long id);
+
+    /**
+     * 根据父节点id查询商品分类
+     *
+     * @param parentId 商品分类父节点id
+     * @return List
+     */
+    List<Category> getCategoryByParentId(Long parentId);
 }
