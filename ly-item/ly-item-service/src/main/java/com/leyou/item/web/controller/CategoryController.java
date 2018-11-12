@@ -1,21 +1,16 @@
 package com.leyou.item.web.controller;
 
-import com.leyou.common.dto.ResultDTO;
-import com.leyou.common.utils.ResponseGenerator;
 import com.leyou.item.dao.po.Category;
 import com.leyou.item.service.CategoryService;
-import com.sun.jndi.toolkit.url.Uri;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.Authorization;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.URI;
 import java.util.List;
 
 /**

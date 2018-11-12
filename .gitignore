@@ -13,6 +13,7 @@ out
 gen
 **/target/
 target/
+/logs/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Java template
