@@ -41,6 +41,7 @@
 
         <root level="all">
             <appenderref ref="console" />
+            <appenderref ref="log" />
             <appenderref ref="file" />
         </root>
     </loggers>
