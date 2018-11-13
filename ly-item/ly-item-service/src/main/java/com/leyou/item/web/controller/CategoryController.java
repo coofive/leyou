@@ -1,6 +1,7 @@
 package com.leyou.item.web.controller;
 
-import com.leyou.item.dao.po.Category;
+import com.leyou.item.api.CategoryApi;
+import com.leyou.item.entity.Category;
 import com.leyou.item.service.CategoryService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,9 +21,8 @@ import java.util.List;
  * @version : 1.0.0
  */
 @RestController
-@RequestMapping("/item/category")
 @Api(tags = "CategoryController", description = "商品分类接口", produces = "application/json")
-public class CategoryController {
+public class CategoryController implements CategoryApi {
 
     @Autowired
     private CategoryService categoryService;
@@ -33,7 +33,7 @@ public class CategoryController {
      * @param category 商品分类实体
      * @return ResponseEntity
      */
-    @PostMapping
+    @Override
     @ApiOperation(value = "添加商品分类", notes = "添加商品分类")
     public ResponseEntity<Void> add(@RequestBody @ApiParam(value = "商品分类", required = true) Category category) {
         boolean result = this.categoryService.addCategory(category);
@@ -47,7 +47,7 @@ public class CategoryController {
      * @param id       商品分类id
      * @return ResponseEntity
      */
-    @PutMapping("/{id}")
+    @Override
     @ApiOperation(value = "根据id修改商品分类", notes = "修改商品分类")
     public ResponseEntity<Void> update(@RequestBody @ApiParam(value = "商品分类", required = true) Category category,
                                        @PathVariable @ApiParam(value = "商品分类id", required = true) Long id) {
@@ -62,7 +62,7 @@ public class CategoryController {
      * @param id 商品分类id
      * @return ResponseEntity
      */
-    @DeleteMapping("/{id}")
+    @Override
     @ApiOperation(value = "根据id删除商品分类", notes = "删除商品分类")
     public ResponseEntity<Void> delete(@PathVariable @ApiParam(value = "商品分类id", required = true) Long id) {
         boolean result = this.categoryService.deleteCategory(id);
@@ -75,7 +75,7 @@ public class CategoryController {
      * @param id 商品分类id
      * @return ResponseEntity
      */
-    @GetMapping("/{id}")
+    @Override
     @ApiOperation(value = "根据id查询商品分类", notes = "查询商品分类")
     public ResponseEntity<Category> getById(@PathVariable @ApiParam(value = "商品分类id", required = true) Long id) {
         Category category = this.categoryService.getCategoryById(id);
@@ -88,7 +88,7 @@ public class CategoryController {
      * @param parentId 商品分类父节点id
      * @return ResponseEntity
      */
-    @GetMapping("list/{pid}")
+    @Override
     @ApiOperation(value = "根据父节点id查询商品分类", notes = "查询商品分类")
     public ResponseEntity<List<Category>> getByParentId(@PathVariable(value = "pid") @ApiParam(value = "商品分类父节点id", required = true) Long parentId) {
         List<Category> categories = this.categoryService.getCategoryByParentId(parentId);
@@ -101,9 +101,9 @@ public class CategoryController {
      * @param ids 商品分类ids
      * @return ResponseEntity
      */
-    @GetMapping("list")
+    @Override
     @ApiOperation(value = "根据ids查询商品分类", notes = "查询商品分类")
-    public ResponseEntity<List<Category>> getByIds(@RequestParam(value = "ids") @ApiParam(value = "商品分类ids", required = true) List<Long> ids){
+    public ResponseEntity<List<Category>> getByIds(@RequestParam(value = "ids") @ApiParam(value = "商品分类ids", required = true) List<Long> ids) {
         List<Category> categories = this.categoryService.getCategoryByIds(ids);
         return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
     }
@@ -114,9 +114,9 @@ public class CategoryController {
      * @param cid 商品分类id
      * @return ResponseEntity
      */
-    @GetMapping("all/level")
+    @Override
     @ApiOperation(value = "根据cid查询层级所有商品分类", notes = "查询商品分类")
-    public ResponseEntity<List<Category>> getByCid(@RequestParam(value = "cid") @ApiParam(value = "商品分类id", required = true) Long cid){
+    public ResponseEntity<List<Category>> getByCid(@RequestParam(value = "cid") @ApiParam(value = "商品分类id", required = true) Long cid) {
         List<Category> categories = this.categoryService.getCategoryByCid(cid);
         return CollectionUtils.isEmpty(categories) ? ResponseEntity.notFound().build() : ResponseEntity.ok(categories);
     }
