@@ -1,7 +1,7 @@
 package com.leyou.item.service;
 
 
-import com.leyou.item.dao.po.Category;
+import com.leyou.item.entity.Category;
 
 import java.util.List;
 

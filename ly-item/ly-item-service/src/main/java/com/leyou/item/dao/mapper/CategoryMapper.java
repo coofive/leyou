@@ -1,7 +1,7 @@
 package com.leyou.item.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.leyou.item.dao.po.Category;
+import com.leyou.item.entity.Category;
 
 /**
  * @author : coofive
