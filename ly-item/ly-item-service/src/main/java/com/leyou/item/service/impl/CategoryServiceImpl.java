@@ -92,22 +92,27 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
      */
     @Override
     public List<Category> getCategoryByCid(Long cid) {
-        List<Category> categories = new ArrayList<>(3);
+        List<Category> categories = new ArrayList<>();
 
-        Category cate3 = this.getById(cid);
-        if (cate3 != null) {
-            categories.add(cate3);
-            Category cate2 = this.getById(cate3.getParentId());
-            if (cate2 != null) {
-                categories.add(cate2);
-                Category cate1 = this.getById(cate2.getParentId());
-                if (cate1 != null) {
-                    categories.add(cate1);
-                }
-            }
-        }
+        // 层级商品分类
+        levelCategory(categories, cid);
 
         Collections.reverse(categories);
         return categories;
+    }
+
+    /**
+     * 层级商品分类
+     *
+     * @param categories 商品分类list
+     * @param cid 商品分类id
+     */
+    private void levelCategory(List<Category> categories, Long cid) {
+        Category category = this.getById(cid);
+        if (category != null) {
+            categories.add(category);
+            levelCategory(categories, category.getParentId());
+        }
+
     }
 }
