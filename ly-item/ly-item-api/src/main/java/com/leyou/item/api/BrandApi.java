@@ -1,7 +1,6 @@
 package com.leyou.item.api;
 
 import com.leyou.item.entity.Brand;
-import com.leyou.item.entity.Category;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

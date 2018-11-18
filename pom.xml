@@ -32,7 +32,7 @@
         <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
         <fastjson.version>1.2.51</fastjson.version>
         <lombok.version>1.18.4</lombok.version>
-        <swagger2.version>2.6.1</swagger2.version>
+        <swagger2.version>2.9.2</swagger2.version>
         <mybatisplus.version>3.0.5</mybatisplus.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
     </properties>

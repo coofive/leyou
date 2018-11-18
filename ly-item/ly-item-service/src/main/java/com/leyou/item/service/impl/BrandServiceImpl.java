@@ -1,0 +1,27 @@
+package com.leyou.item.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.leyou.item.dao.mapper.BrandMapper;
+import com.leyou.item.entity.Brand;
+import com.leyou.item.service.BrandService;
+import org.springframework.stereotype.Service;
+
+/**
+ * @author : coofive
+ * @version : 1.0.0
+ * @date : 11/18/2018 2:22 PM
+ */
+@Service
+public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements BrandService {
+
+    /**
+     * 添加商品品牌
+     *
+     * @param brand 商品品牌
+     * @return boolean
+     */
+    @Override
+    public boolean addBrand(Brand brand) {
+        return this.save(brand);
+    }
+}

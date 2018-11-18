@@ -1,0 +1,18 @@
+package com.leyou.item.service;
+
+import com.leyou.item.entity.Brand;
+
+/**
+ * @author : coofive
+ * @version : 1.0.0
+ * @date : 11/18/2018 2:21 PM
+ */
+public interface BrandService {
+    /**
+     * 添加商品品牌
+     *
+     * @param brand 商品品牌
+     * @return boolean
+     */
+    boolean addBrand(Brand brand);
+}
