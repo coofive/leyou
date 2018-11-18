@@ -15,4 +15,12 @@ public interface BrandService {
      * @return boolean
      */
     boolean addBrand(Brand brand);
+
+    /**
+     * 根据id删除商品品牌
+     *
+     * @param id 商品品牌id
+     * @return boolean
+     */
+    boolean deleteBrandById(Long id);
 }
