@@ -35,4 +35,15 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
     public boolean deleteBrandById(Long id) {
         return this.removeById(id);
     }
+
+    /**
+     * 根据id修改商品品牌
+     *
+     * @param brand 商品品牌
+     * @return boolean
+     */
+    @Override
+    public boolean updateBrandById(Brand brand) {
+        return this.updateById(brand);
+    }
 }
