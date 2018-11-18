@@ -31,4 +31,12 @@ public interface BrandService {
      * @return boolean
      */
     boolean updateBrandById(Brand brand);
+
+    /**
+     * 根据id查询商品品牌
+     *
+     * @param id 商品品牌id
+     * @return Brand
+     */
+    Brand getBrandById(Long id);
 }

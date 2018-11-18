@@ -46,4 +46,15 @@ public class BrandServiceImpl extends ServiceImpl<BrandMapper, Brand> implements
     public boolean updateBrandById(Brand brand) {
         return this.updateById(brand);
     }
+
+    /**
+     * 根据id查询商品品牌
+     *
+     * @param id 商品品牌id
+     * @return Brand
+     */
+    @Override
+    public Brand getBrandById(Long id) {
+        return this.getById(id);
+    }
 }

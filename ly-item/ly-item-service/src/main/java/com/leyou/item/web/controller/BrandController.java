@@ -46,7 +46,7 @@ public class BrandController implements BrandApi {
      */
     @ApiOperation(value = "根据id删除商品品牌", notes = "删除商品品牌")
     @Override
-    public ResponseEntity<Void> delete(@PathVariable @ApiParam(value = "商品品牌id")Long id) {
+    public ResponseEntity<Void> delete(@PathVariable @ApiParam(value = "商品品牌id") Long id) {
         boolean result = this.brandService.deleteBrandById(id);
         return result ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
@@ -55,20 +55,28 @@ public class BrandController implements BrandApi {
      * 根据id修改商品品牌
      *
      * @param brand 商品品牌
-     * @param id 商品品牌id
+     * @param id    商品品牌id
      * @return ResponseEntity
      */
     @ApiOperation(value = "根据id修改商品品牌", notes = "修改商品品牌")
     @Override
     public ResponseEntity<Void> update(@RequestBody @ApiParam(value = "商品品牌") Brand brand,
-                                       @PathVariable @ApiParam(value = "商品品牌id") Long id) {
+                                       @PathVariable Long id) {
         brand.setId(id);
         boolean result = this.brandService.updateBrandById(brand);
         return result ? ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
 
+    /**
+     * 根据id查询商品品牌
+     *
+     * @param id 商品品牌id
+     * @return ResponseEntity
+     */
+    @ApiOperation(value = "根据id查询商品品牌", notes = "查询商品品牌")
     @Override
-    public ResponseEntity<Brand> getById(Long id) {
-        return null;
+    public ResponseEntity<Brand> getById(@PathVariable @ApiParam(value = "商品品牌id") Long id) {
+        Brand brand = this.brandService.getBrandById(id);
+        return brand == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(brand);
     }
 }
